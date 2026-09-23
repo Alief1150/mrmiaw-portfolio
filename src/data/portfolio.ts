@@ -1,0 +1,296 @@
+export const DISCORD_SERVER = "https://discord.gg/C99tjr5Txq";
+export const DISCORD_USERNAME = "mr_miaw1";
+export const DEVIANTART = "https://www.deviantart.com/mrmiaw001";
+
+export type ArtworkKind = "Thumbnail" | "Game icon" | "Scene" | "Logo";
+
+export interface PortfolioItem {
+  slug: string;
+  title: string;
+  src: string;
+  width: number;
+  height: number;
+  orientation: "landscape" | "square";
+  featured?: boolean;
+  kind?: ArtworkKind;
+  objectPosition?: string;
+  alt: string;
+}
+
+const gfx = (file: string) => `/gfx/${file}`;
+
+export const HERO_ITEM: PortfolioItem = {
+  slug: "warhammer",
+  title: "Warhammer",
+  src: gfx("Warhammer_WATERMARKED.jpg"),
+  width: 1600,
+  height: 900,
+  orientation: "landscape",
+  kind: "Scene",
+  objectPosition: "50% 40%",
+  alt: "Three red-armored Roblox soldiers holding a rocky outcrop under a teal storm sky, muzzle flashes lighting the scene, GFX by MrMiaw",
+};
+
+export const FEATURED_ITEMS: PortfolioItem[] = [
+  {
+    slug: "roman-conference",
+    title: "Roman Conference",
+    src: gfx("Roman_Conference_WATERMARKED.jpg"),
+    width: 1600,
+    height: 900,
+    orientation: "landscape",
+    featured: true,
+    kind: "Scene",
+    objectPosition: "50% 35%",
+    alt: "Three Roblox Roman officers in plumed helmets leaning over a war map in a sunlit marble hall, GFX by MrMiaw",
+  },
+  {
+    slug: "medieval-vs-samurai",
+    title: "Medieval vs Samurai",
+    src: gfx("Medieval_vs_Samurai_WATERMARKED.jpg"),
+    width: 1280,
+    height: 720,
+    orientation: "landscape",
+    featured: true,
+    kind: "Scene",
+    objectPosition: "60% 50%",
+    alt: "A Roblox knight with a raised longsword facing a Roblox samurai under moonlight, GFX by MrMiaw",
+  },
+  {
+    slug: "sci-fi",
+    title: "Sci-Fi",
+    src: gfx("Sci_fi_WATERMARKED.jpg"),
+    width: 1600,
+    height: 900,
+    orientation: "landscape",
+    featured: true,
+    kind: "Scene",
+    objectPosition: "35% 50%",
+    alt: "Roblox soldiers in glowing visor armor firing rifles inside a red-lit facility while flames spread, GFX by MrMiaw",
+  },
+  {
+    slug: "the-red-guards",
+    title: "The Red Guards",
+    src: gfx("The_Red_Guards_WATERMARK.jpg"),
+    width: 1254,
+    height: 1254,
+    orientation: "square",
+    featured: true,
+    kind: "Game icon",
+    objectPosition: "50% 30%",
+    alt: "Roblox soldier in a helmet holding a rifle against a red emblem background with a Red Guard title, game icon GFX by MrMiaw",
+  },
+];
+
+export const GALLERY_ITEMS: PortfolioItem[] = [
+  {
+    slug: "chikina",
+    title: "Chikina",
+    src: gfx("Chikina_WATERMARKED.jpg"),
+    width: 1600,
+    height: 900,
+    orientation: "landscape",
+    alt: "Roblox GFX artwork titled Chikina by MrMiaw",
+  },
+  {
+    slug: "cia-logo",
+    title: "CIA Logo",
+    src: gfx("CIA_Logo_WATERMARKED.jpg"),
+    width: 1080,
+    height: 1080,
+    orientation: "square",
+    kind: "Logo",
+    alt: "Roblox logo artwork for CIA by MrMiaw",
+  },
+  {
+    slug: "cia-thumbnail",
+    title: "CIA Thumbnail",
+    src: gfx("CIA_Thumbnail_WATERMARKED.jpg"),
+    width: 1600,
+    height: 900,
+    orientation: "landscape",
+    kind: "Thumbnail",
+    alt: "Roblox thumbnail artwork for CIA by MrMiaw",
+  },
+  {
+    slug: "cop-stuff",
+    title: "Cop Stuff",
+    src: gfx("Cop_stuff_WATERMARKED.jpg"),
+    width: 512,
+    height: 512,
+    orientation: "square",
+    alt: "Roblox GFX artwork titled Cop Stuff by MrMiaw",
+  },
+  {
+    slug: "fisherman",
+    title: "Fisherman",
+    src: gfx("Fisherman_WATERMARKED.jpg"),
+    width: 1600,
+    height: 900,
+    orientation: "landscape",
+    alt: "Roblox GFX artwork titled Fisherman by MrMiaw",
+  },
+  {
+    slug: "night-fishing",
+    title: "Night Fishing",
+    src: gfx("Fish_Night_NWATERMARKED.jpg"),
+    width: 1600,
+    height: 900,
+    orientation: "landscape",
+    alt: "Roblox GFX artwork titled Night Fishing by MrMiaw",
+  },
+  {
+    slug: "lacrosse",
+    title: "Lacrosse",
+    src: gfx("Lacrosse_WATERMARKED.jpg"),
+    width: 512,
+    height: 512,
+    orientation: "square",
+    alt: "Roblox GFX artwork titled Lacrosse by MrMiaw",
+  },
+  {
+    slug: "robbing",
+    title: "Robbing",
+    src: gfx("Robbing_WATERMARKED.jpg"),
+    width: 1600,
+    height: 900,
+    orientation: "landscape",
+    alt: "Roblox GFX artwork titled Robbing by MrMiaw",
+  },
+  {
+    slug: "roman-split",
+    title: "Roman Split",
+    src: gfx("Roman_3Split_WATERMARKED.jpg"),
+    width: 1600,
+    height: 900,
+    orientation: "landscape",
+    alt: "Roblox GFX artwork titled Roman Split by MrMiaw",
+  },
+  {
+    slug: "roman-stuff",
+    title: "Roman Stuff",
+    src: gfx("Roman_Stuff_WATERMARKED.jpg"),
+    width: 512,
+    height: 512,
+    orientation: "square",
+    alt: "Roblox GFX artwork titled Roman Stuff by MrMiaw",
+  },
+  {
+    slug: "roman-wanderer",
+    title: "Roman Wanderer",
+    src: gfx("Roman_Wanderer_WATERMARKED.jpg"),
+    width: 1600,
+    height: 900,
+    orientation: "landscape",
+    alt: "Roblox GFX artwork titled Roman Wanderer by MrMiaw",
+  },
+  {
+    slug: "secure-the-prison",
+    title: "Secure the Prison",
+    src: gfx("Secure_The_Prison_WATERMARKED.jpg"),
+    width: 1600,
+    height: 900,
+    orientation: "landscape",
+    alt: "Roblox GFX artwork titled Secure the Prison by MrMiaw",
+  },
+  {
+    slug: "secure-the-prison-2",
+    title: "Secure the Prison II",
+    src: gfx("Secure_The_Prison_WATERMARKED_2.jpg"),
+    width: 1600,
+    height: 900,
+    orientation: "landscape",
+    alt: "Roblox GFX artwork titled Secure the Prison II by MrMiaw",
+  },
+  {
+    slug: "star-wars",
+    title: "Star Wars",
+    src: gfx("Star_Wars_WATERMARKED.jpg"),
+    width: 1080,
+    height: 1080,
+    orientation: "square",
+    alt: "Roblox GFX artwork titled Star Wars by MrMiaw",
+  },
+  {
+    slug: "usar",
+    title: "USAR",
+    src: gfx("USAR1_WATERMARKED.jpg"),
+    width: 1254,
+    height: 1254,
+    orientation: "square",
+    alt: "Roblox GFX artwork titled USAR by MrMiaw",
+  },
+  {
+    slug: "usar-edited",
+    title: "USAR Edited",
+    src: gfx("USAR_Edited_G_WATERMARKED.jpg"),
+    width: 1254,
+    height: 1254,
+    orientation: "square",
+    alt: "Roblox GFX artwork titled USAR Edited by MrMiaw",
+  },
+  {
+    slug: "usm-1940",
+    title: "USM 1940",
+    src: gfx("USM1940_T_WATERMARKED.jpg"),
+    width: 1600,
+    height: 900,
+    orientation: "landscape",
+    kind: "Thumbnail",
+    alt: "Roblox thumbnail artwork titled USM 1940 by MrMiaw",
+  },
+  {
+    slug: "usm-g",
+    title: "USM G",
+    src: gfx("USM_G_WATERMARKED.jpg"),
+    width: 512,
+    height: 512,
+    orientation: "square",
+    alt: "Roblox GFX artwork titled USM G by MrMiaw",
+  },
+  {
+    slug: "usm-m",
+    title: "USM M",
+    src: gfx("USM_M_WATERMARKED.jpg"),
+    width: 512,
+    height: 512,
+    orientation: "square",
+    alt: "Roblox GFX artwork titled USM M by MrMiaw",
+  },
+  {
+    slug: "warhammer",
+    title: "Warhammer",
+    src: gfx("Warhammer_WATERMARKED.jpg"),
+    width: 1600,
+    height: 900,
+    orientation: "landscape",
+    kind: "Scene",
+    alt: "Three red-armored Roblox soldiers holding a rocky outcrop under a teal storm sky, GFX by MrMiaw",
+  },
+  {
+    slug: "wolfenstein",
+    title: "Wolfenstein",
+    src: gfx("Wolfenstein_WATERMARKED.jpg"),
+    width: 1600,
+    height: 900,
+    orientation: "landscape",
+    alt: "Roblox GFX artwork titled Wolfenstein by MrMiaw",
+  },
+  {
+    slug: "zombie-attack",
+    title: "Zombie Attack",
+    src: gfx("Zombie_Attack_WATERMARKED.jpg"),
+    width: 1600,
+    height: 900,
+    orientation: "landscape",
+    kind: "Thumbnail",
+    objectPosition: "50% 30%",
+    alt: "Two Roblox survivors firing at blocky zombies in a forest with a Fight the Zombies title, thumbnail GFX by MrMiaw",
+  },
+];
+
+export const ALL_ITEMS: PortfolioItem[] = [
+  HERO_ITEM,
+  ...FEATURED_ITEMS.filter((item) => item.slug !== "warhammer"),
+  ...GALLERY_ITEMS.filter((item) => item.slug !== "warhammer"),
+];
