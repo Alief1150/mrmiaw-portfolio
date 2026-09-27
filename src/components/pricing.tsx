@@ -33,12 +33,15 @@ export function Pricing() {
               </dd>
             </div>
             <div className="grid gap-2 border-b border-ember px-6 py-7 sm:grid-cols-2">
-              <dt className="text-[15px] text-fog">USD commissions</dt>
+              <dt className="text-[15px] text-fog">USD</dt>
               <dd className="font-display text-3xl text-cream">
-                US$2.50-US$37.50{" "}
-                <span className="font-sans text-base font-normal text-fog">
-                  via Wise
-                </span>
+                US$2.50-US$37.50
+              </dd>
+            </div>
+            <div className="grid gap-2 border-b border-ember px-6 py-7 sm:grid-cols-2">
+              <dt className="text-[15px] text-fog">Payment</dt>
+              <dd className="leading-relaxed text-cream">
+                Wise preferred. PayPal accepted. Robux payment available.
               </dd>
             </div>
             <div className="px-6 py-7">
@@ -52,7 +55,7 @@ export function Pricing() {
                 rel="noopener noreferrer"
                 className="mt-5 inline-flex min-h-[48px] items-center rounded-full border border-gold/70 px-7 text-base font-semibold text-bright transition-colors hover:bg-gold hover:text-ink"
               >
-                Ask about pricing on Discord
+                Ask about a commission on Discord
               </a>
             </div>
           </dl>

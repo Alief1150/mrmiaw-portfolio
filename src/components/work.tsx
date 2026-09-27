@@ -9,8 +9,27 @@ import {
   type PortfolioItem,
 } from "@/data/portfolio";
 import { ArtworkLightbox } from "./artwork-lightbox";
+import { DraggableWorkMarquee } from "./draggable-work-marquee";
 
 const LIGHTBOX_ITEMS: PortfolioItem[] = [...FEATURED_ITEMS, ...GALLERY_ITEMS];
+
+const MARQUEE_SLUGS = [
+  "the-red-guards",
+  "star-wars",
+  "cia-logo",
+  "usar",
+  "usar-edited",
+  "roman-stuff",
+  "lacrosse",
+  "cop-stuff",
+  "usm-g",
+  "usm-m",
+];
+
+const MARQUEE_ITEMS: PortfolioItem[] = MARQUEE_SLUGS.flatMap((slug) => {
+  const found = GALLERY_ITEMS.find((item) => item.slug === slug);
+  return found ? [found] : [];
+});
 
 function openAt(
   item: PortfolioItem,
@@ -91,6 +110,26 @@ export function Work() {
               </div>
             </article>
           ))}
+        </div>
+      </div>
+
+      <div className="border-t border-ember">
+        <div className="mx-auto max-w-[1200px] px-5 pb-4 pt-20 md:px-8 md:pt-28">
+          <div className="mx-auto max-w-[640px] text-center">
+            <h2 className="font-display text-4xl leading-tight md:text-5xl">
+              Square cuts
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-fog">
+              Icons and square-format pieces. Drag, swipe, or use arrow keys
+              to browse. Select one to see it full size.
+            </p>
+          </div>
+        </div>
+        <div className="pb-20 md:pb-28">
+          <DraggableWorkMarquee
+            items={MARQUEE_ITEMS}
+            onOpen={(item) => openAt(item, setLightboxIndex)}
+          />
         </div>
       </div>
 

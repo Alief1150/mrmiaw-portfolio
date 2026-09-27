@@ -19,8 +19,7 @@ export function CommissionCta() {
           Commissions are open
         </h2>
         <p className="mx-auto mt-5 max-w-[52ch] text-lg leading-relaxed text-fog">
-          Have a thumbnail, game icon, avatar GFX, or multi-character scene in
-          mind? Bring the idea to the Discord server and work it out directly.
+          Need an avatar GFX, thumbnail, group icon, or game icon?
         </p>
         <a
           href={DISCORD_SERVER}

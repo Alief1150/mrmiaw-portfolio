@@ -20,12 +20,12 @@ export function Hero() {
         />
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/30 to-transparent"
+          className="absolute inset-0 bg-ink/35"
         />
 
         <div className="absolute inset-x-0 bottom-0">
-          <div className="mx-auto max-w-[1200px] px-5 pb-14 pt-40 md:px-8 md:pb-20">
-            <div className="hero-entrance-late max-w-[640px]">
+          <div className="mx-auto max-w-[1200px] px-5 pb-14 pt-40 text-center md:px-8 md:pb-20">
+            <div className="hero-entrance-late mx-auto max-w-[680px]">
               <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-gold/50 bg-ink/70 px-4 py-2 text-sm font-medium text-bright">
                 <span
                   aria-hidden="true"
@@ -42,11 +42,11 @@ export function Hero() {
               <p className="mt-3 text-xl font-medium text-bright md:text-2xl">
                 Roblox GFX artist
               </p>
-              <p className="mt-4 max-w-[52ch] text-base leading-relaxed text-cream/90 md:text-lg">
-                Thumbnails, game icons, avatar GFX, and multi-character scenes
-                for Roblox.
+              <p className="mt-4 text-base leading-relaxed text-cream/90 md:text-lg">
+                Roblox avatar GFX, game thumbnails, group icons, and game
+                icons.
               </p>
-              <div className="mt-8 flex flex-wrap items-center gap-3">
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
                 <a
                   href={DISCORD_SERVER}
                   target="_blank"
