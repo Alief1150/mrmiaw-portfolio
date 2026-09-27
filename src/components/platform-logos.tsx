@@ -1,13 +1,17 @@
 import {
-  SiAdobephotoshop,
   SiDiscord,
   SiPaypal,
   SiRoblox,
   SiWise,
   SiX,
 } from "@icons-pack/react-simple-icons";
+import { Brush } from "lucide-react";
 import { LogosCarousel } from "./ui/logos-carousel";
 import { GradientChapter } from "./ui/gradient-chapter";
+
+function PhotoshopMark({ className }: { className?: string }) {
+  return <Brush className={className} aria-hidden="true" />;
+}
 
 const LOGOS = [
   { label: "Roblox", Icon: SiRoblox },
@@ -15,7 +19,7 @@ const LOGOS = [
   { label: "PayPal", Icon: SiPaypal },
   { label: "Discord", Icon: SiDiscord },
   { label: "X", Icon: SiX },
-  { label: "Photoshop", Icon: SiAdobephotoshop },
+  { label: "Photoshop", Icon: PhotoshopMark },
 ];
 
 export function PlatformLogos() {

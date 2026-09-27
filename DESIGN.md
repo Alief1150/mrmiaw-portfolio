@@ -1,9 +1,33 @@
 # DESIGN.md — MrMiaw Portfolio + Commission Site
 
-> Reading this as: `single-page artist commission book` for `Roblox players and game owners who buy thumbnails and icons`,
-> in a `dark cinematic editorial, artwork-first` visual language, dial ENERGY 2 / RHYTHM 3 / MOTION 1.
+> Reading this as: `centered interactive commission portfolio` for `Roblox players and game owners who buy thumbnails and icons`,
+> in a `dark cinematic editorial base, gold identity, finished artwork first, one signature scroll-built R6 interaction` visual language,
+> dial ENERGY 3 / RHYTHM 3 / MOTION 2.
 
-## Visual concept
+## V2 evolution
+
+V2 keeps the V1 foundation (gold/charcoal palette, Anton + Archivo, artwork-first,
+centered spine, restrained UI) and adds exactly one spectacle: the R6 assembly
+sequence. All other motion supports rather than competes with it.
+
+- One primary spectacle: scroll-driven R6 assembly with overshoot and snap.
+- Finished GFX remains the first proof in the hero. The 3D model never replaces it.
+- Spell UI sources adapted: animated gradient (gold chapter backdrop only),
+  blur reveal (scroll-synchronized R6 copy), logos carousel (platforms and tools,
+  never clients), tweet cards (graceful skeleton and unavailable states).
+- ObsidianUI draggable marquee adapted for square-format browsing with lightbox
+  reuse. Duplicates are inert and hidden from assistive tech.
+- Layout stays on one centered spine, max 1200px. Full-bleed layers (hero art,
+  R6 canvas, gradient chapter, marquee track) may break out; copy stays anchored.
+- Motion budget: R6 scene first, user-directed marquee second, slow logo rotation
+  third, low-speed gradient chapter last. Nothing else animates on scroll.
+
+Dials: ENERGY 3 (poster voice plus one signature scene), RHYTHM 3 (hero bleed,
+assembly stage, editorial rows, marquee band, centered list, ledger, logo
+chapter, feed, letter, finale all differ), MOTION 2 (one pinned scroll scene
+plus small state transitions; no page-wide parallax or choreography system).
+
+## Visual concept (V1, retained)
 
 An online commission book, not a developer portfolio. The GFX artwork supplies nearly all
 color and visual interest. The surrounding UI is a quiet charcoal mount with gold identity

@@ -89,7 +89,7 @@ export function R6AssemblySection() {
           </h2>
           <div className="mx-auto max-w-[720px] text-center">
             <div className="h-[52svh] min-h-[380px]">
-              <R6Scene progress={progressRef} running={inView} />
+              <R6Scene progress={progressRef.current} running={inView} />
             </div>
             <div className="mt-6">
               <R6ScrollCopy progress={1} staticMode />
@@ -109,7 +109,7 @@ export function R6AssemblySection() {
         <div className="sticky top-0 flex h-svh flex-col items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-ink" aria-hidden="true" />
           <div className="relative h-[62svh] w-full max-w-[900px] px-5">
-            <R6Scene progress={progressRef} running={inView} />
+            <R6Scene progress={progressRef.current} running={inView} />
           </div>
           <div className="relative w-full max-w-[720px] px-5">
             <R6ScrollCopy progress={progress} staticMode={false} />

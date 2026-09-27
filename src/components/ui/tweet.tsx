@@ -278,7 +278,12 @@ export function Tweet({ id, className }: { id: string; className?: string }) {
 
   let enrichedTweet: EnrichedTweet;
   try {
-    const entities = tweet.entities ?? {};
+    const entities = (tweet.entities ?? {}) as {
+      hashtags?: never[];
+      urls?: never[];
+      user_mentions?: never[];
+      symbols?: never[];
+    };
     enrichedTweet = enrichTweet({
       ...tweet,
       entities: {

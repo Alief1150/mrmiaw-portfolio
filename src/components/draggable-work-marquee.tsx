@@ -10,6 +10,14 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(Draggable);
 }
 
+function setDragX(instance: Draggable, value: number) {
+  (instance as unknown as { x: number }).x = value;
+}
+
+function getDragX(instance: Draggable) {
+  return (instance as unknown as { x: number }).x;
+}
+
 interface DraggableWorkMarqueeProps {
   items: PortfolioItem[];
   onOpen: (item: PortfolioItem) => void;
@@ -95,22 +103,22 @@ export function DraggableWorkMarquee({ items, onOpen }: DraggableWorkMarqueeProp
         onPress(this: Draggable) {
           isDragging = true;
           throwVelocity = 0;
-          this.x = x;
-          lastDragX = this.x;
+          setDragX(this, x);
+          lastDragX = x;
           lastDragTime = performance.now();
         },
         onDrag(this: Draggable) {
           const now = performance.now();
-          const dx = this.x - lastDragX;
+          const dx = getDragX(this) - lastDragX;
           const dt = now - lastDragTime;
-          x = wrapValue(this.x);
+          x = wrapValue(getDragX(this));
           setX(x);
-          this.x = x;
+          setDragX(this, x);
           if (dt > 0) {
             const sampled = (dx / dt) * 36.67;
             throwVelocity = gsap.utils.clamp(-60, 60, sampled * 2.8);
           }
-          lastDragX = this.x;
+          lastDragX = getDragX(this);
           lastDragTime = now;
         },
         onRelease() {
