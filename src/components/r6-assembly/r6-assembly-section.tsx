@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { R6ScrollCopy } from "./r6-scroll-copy";
 import { preloadR6Model } from "./r6-scene";
 import type { ProgressSource } from "./r6-scene";
+import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
 
 const R6Scene = dynamic(
   () => import("./r6-scene").then((module) => module.R6Scene),
@@ -22,6 +23,10 @@ const R6Scene = dynamic(
   },
 );
 
+const ASSEMBLED_PROGRESS: { current: ProgressSource } = {
+  current: { current: 1 },
+};
+
 function clamp01(value: number) {
   return Math.min(1, Math.max(0, value));
 }
@@ -31,24 +36,14 @@ export function R6AssemblySection() {
   const progressRef = useRef<ProgressSource>({ current: 0 });
   const [progress, setProgress] = useState(0);
   const [inView, setInView] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(false);
+  const reducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
     preloadR6Model();
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(media.matches);
-    const onChange = (event: MediaQueryListEvent) =>
-      setReducedMotion(event.matches);
-    media.addEventListener("change", onChange);
-    return () => media.removeEventListener("change", onChange);
   }, []);
 
   useEffect(() => {
-    if (reducedMotion) {
-      progressRef.current.current = 1;
-      setProgress(1);
-      return;
-    }
+    if (reducedMotion) return;
     let raf = 0;
     let last = -1;
     const tick = () => {
@@ -89,7 +84,7 @@ export function R6AssemblySection() {
           </h2>
           <div className="mx-auto max-w-[720px] text-center">
             <div className="h-[52svh] min-h-[380px]">
-              <R6Scene progress={progressRef.current} running={inView} />
+              <R6Scene progress={ASSEMBLED_PROGRESS} running={inView} />
             </div>
             <div className="mt-6">
               <R6ScrollCopy progress={1} staticMode />
@@ -109,7 +104,7 @@ export function R6AssemblySection() {
         <div className="sticky top-0 flex h-svh flex-col items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-ink" aria-hidden="true" />
           <div className="relative h-[62svh] w-full max-w-[900px] px-5">
-            <R6Scene progress={progressRef.current} running={inView} />
+            <R6Scene progress={progressRef} running={inView} />
           </div>
           <div className="relative w-full max-w-[720px] px-5">
             <R6ScrollCopy progress={progress} staticMode={false} />

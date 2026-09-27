@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatedGradient } from "./animated-gradient";
+import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
 
 const MRMIAW_GRADIENT = {
   color1: "#F2DC73",
@@ -26,16 +27,7 @@ export function GradientChapter({
 }) {
   const ref = useRef<HTMLElement>(null);
   const [inView, setInView] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(false);
-
-  useEffect(() => {
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(media.matches);
-    const onChange = (event: MediaQueryListEvent) =>
-      setReducedMotion(event.matches);
-    media.addEventListener("change", onChange);
-    return () => media.removeEventListener("change", onChange);
-  }, []);
+  const reducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
     const node = ref.current;

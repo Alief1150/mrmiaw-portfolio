@@ -49,7 +49,7 @@ function assembleEase(t: number) {
 
 const IDENTITY_QUAT = new THREE.Quaternion();
 
-function R6Model({ progress }: { progress: ProgressSource }) {
+function R6Model({ progressRef }: { progressRef: { current: ProgressSource } }) {
   const gltf = useGLTF("/models/Mr_Miaw_Web.glb");
 
   const rig = useMemo(() => {
@@ -77,7 +77,7 @@ function R6Model({ progress }: { progress: ProgressSource }) {
   const keyLight = useRef<THREE.DirectionalLight>(null);
 
   useFrame(({ camera, size }) => {
-    const p = Math.min(1, Math.max(0, progress.current));
+    const p = Math.min(1, Math.max(0, progressRef.current.current));
     for (const { part, node, exploded, explodedQuat } of rig.nodes) {
       if (!node) continue;
       const local = (p - part.start) / Math.max(0.0001, part.end - part.start);
@@ -113,7 +113,7 @@ function R6Model({ progress }: { progress: ProgressSource }) {
   );
 }
 
-export function R6Scene({ progress, running }: { progress: ProgressSource; running: boolean }) {
+export function R6Scene({ progress, running }: { progress: { current: ProgressSource }; running: boolean }) {
   return (
     <Canvas
       dpr={[1, 1.75]}
@@ -124,7 +124,7 @@ export function R6Scene({ progress, running }: { progress: ProgressSource; runni
       aria-label="MrMiaw Roblox character assembling from separated parts as you scroll"
     >
       <Suspense fallback={null}>
-        <R6Model progress={progress} />
+        <R6Model progressRef={progress} />
         <ContactShadows position={[0, -1.24, 0]} opacity={0.55} scale={6} blur={2.4} far={3} color="#000000" />
       </Suspense>
     </Canvas>

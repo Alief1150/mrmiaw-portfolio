@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
 
 export interface LogosCarouselProps {
   children: React.ReactNode;
@@ -25,8 +26,8 @@ export function LogosCarousel({
   const [animate, setAnimate] = React.useState(false);
   const [nextIndex, setNextIndex] = React.useState(1);
   const [inView, setInView] = React.useState(false);
-  const [reducedMotion, setReducedMotion] = React.useState(false);
   const rootRef = React.useRef<HTMLDivElement>(null);
+  const reducedMotion = usePrefersReducedMotion();
 
   const childrenArray = React.Children.toArray(children);
   const logosPerGroup = count || childrenArray.length;
@@ -35,15 +36,6 @@ export function LogosCarousel({
     groups.push(childrenArray.slice(i, i + logosPerGroup));
   }
   const groupsLength = groups.length;
-
-  React.useEffect(() => {
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(media.matches);
-    const onChange = (event: MediaQueryListEvent) =>
-      setReducedMotion(event.matches);
-    media.addEventListener("change", onChange);
-    return () => media.removeEventListener("change", onChange);
-  }, []);
 
   React.useEffect(() => {
     const root = rootRef.current;
