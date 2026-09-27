@@ -114,6 +114,42 @@ body {
   }
 }
 
+.logos-enter {
+  animation-name: logos-enter;
+  animation-timing-function: ease;
+}
+
+.logos-exit {
+  animation-name: logos-exit;
+  animation-timing-function: ease;
+}
+
+@keyframes logos-enter {
+  0% {
+    transform: translateY(40px);
+    filter: blur(4px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes logos-exit {
+  0% {
+    transform: translateY(0);
+    filter: blur(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-40px);
+    filter: blur(4px);
+    opacity: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -121,7 +157,9 @@ body {
 
   .hero-entrance,
   .hero-entrance-late,
-  .lightbox-panel {
+  .lightbox-panel,
+  .logos-enter,
+  .logos-exit {
     animation: none;
   }
 
